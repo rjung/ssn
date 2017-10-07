@@ -5,8 +5,8 @@ import java.util.Date;
 public class Attempt {
 
     private Date started;
-    private Date lastUpdated;
-    private Date ended;
+    private Date updated;
+    private Date finished;
 
     public Date getStarted() {
         return started;
@@ -24,40 +24,40 @@ public class Attempt {
         this.started = started == null ? null : new Date(started);
     }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
+    public Date getUpdated() {
+        return updated;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 
-    public Long getLastUpdatedStore() {
-        return lastUpdated == null ? null : lastUpdated.getTime();
+    public Long getUpdatedStore() {
+        return updated == null ? null : updated.getTime();
     }
 
-    public void setLastUpdatedStore(Long lastUpdated) {
-        this.lastUpdated = lastUpdated == null ? null : new Date(lastUpdated);
+    public void setUpdatedStore(Long updated) {
+        this.updated = updated == null ? null : new Date(updated);
     }
 
-    public Date getEnded() {
-        return ended;
+    public Date getFinished() {
+        return finished;
     }
 
-    public Long getEndedStore() {
-        return ended == null ? null : ended.getTime();
+    public Long getFinishedStore() {
+        return finished == null ? null : finished.getTime();
     }
 
-    public void setEndedStore(Long ended) {
-        this.ended = ended == null ? null : new Date(ended);
+    public void setFinishedStore(Long finished) {
+        this.finished = finished == null ? null : new Date(finished);
     }
 
-    public boolean isEnded() {
-        return ended != null;
+    public boolean isFinished() {
+        return finished != null;
     }
 
-    public void setEnded(Date ended) {
-        this.ended = ended;
+    public void setFinished(Date finished) {
+        this.finished = finished;
     }
 
 }
