@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="iconSize">200dp</dimen>
-    <dimen name="daysSize">62dp</dimen>
+    <dimen name="iconFontSize">200dp</dimen>
+    <dimen name="daysFontSize">62dp</dimen>
+    <dimen name="badgetSize">62dp</dimen>
 </resources>
