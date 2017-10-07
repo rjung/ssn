@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="iconSize">240dp</dimen>
+    <dimen name="iconSize">200dp</dimen>
+    <dimen name="daysSize">62dp</dimen>
 </resources>
