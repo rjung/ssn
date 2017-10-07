@@ -7,7 +7,13 @@
         <item quantity="zero">no days</item>
         <item quantity="other">%d days</item>
     </plurals>
-    <string name="message_days">%d days</string>
+    <plurals name="highscore_days">
+        <item quantity="one">1 day</item>
+        <item quantity="zero">no days</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <string name="message_highscore">Your longest streak:</string>
+    <string name="message_smoked_question">Did you smoke the last 24 hours?</string>
     <string name="button_smoke">I did smoke</string>
     <string name="button_no_smoke">I did not smoke</string>
 </resources>

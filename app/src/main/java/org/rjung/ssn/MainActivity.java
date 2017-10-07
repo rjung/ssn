@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         icon.setText(attempt.isFinished() ? R.string.character_no : R.string.character_yes);
         icon.setTextColor(ContextCompat.getColor(this, attempt.isFinished() ? R.color.colorAccent : R.color.colorPrimary));
         notice.setText(getResources().getQuantityString(R.plurals.message_days, days, days));
-        highscore.setText(getResources().getQuantityString(R.plurals.message_days, highscoreDays, highscoreDays));
+        highscore.setText(getResources().getQuantityString(R.plurals.highscore_days, highscoreDays, highscoreDays));
     }
 
     public void buttonSmoke(View view) {
