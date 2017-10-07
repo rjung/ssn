@@ -24,7 +24,7 @@ public class AttemptDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + DATABASE_TABLE + " (INTEGER " + DATABASE_COLUMN_STARTED + " NOT NULL, INTEGER updated NOT NULL, INTEGER ended NULL)");
+        db.execSQL("CREATE TABLE " + DATABASE_TABLE + " (" + DATABASE_COLUMN_STARTED + " INTEGER NOT NULL, " + DATABASE_COLUMN_UPDATED + " INTEGER NOT NULL, " + DATABASE_COLUMN_FINISHED + " INTEGER NULL)");
     }
 
     @Override
