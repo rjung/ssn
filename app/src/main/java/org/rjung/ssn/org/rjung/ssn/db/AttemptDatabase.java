@@ -78,6 +78,7 @@ public class AttemptDatabase extends SQLiteOpenHelper {
     public void cigaretteTheLastDay() {
         Attempt attempt = getCurrentAttempt();
         attempt.setUpdated(new Date());
+        attempt.setFinished(new Date());
         persist(attempt);
     }
 

@@ -1,9 +1,9 @@
 package org.rjung.ssn;
 
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import org.rjung.ssn.org.rjung.ssn.db.Attempt;
@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         updateState();
     }
 
-
     private void updateState() {
         Attempt attempt = attempts.getCurrentAttempt();
         TextView icon = (TextView) findViewById(R.id.attempt_icon);
@@ -29,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         icon.setText(attempt.isFinished() ? R.string.character_no : R.string.character_yes);
         icon.setTextColor(ContextCompat.getColor(this, attempt.isFinished() ? R.color.colorAccent : R.color.colorPrimary));
-        notice.setText(getResources().getString(R.string.message_days, attempt.getDays()));
+        notice.setText(getResources().getString(R.string.message_days, attempt.isFinished() ? 0 : attempt.getDays()));
+    }
+
+    public void buttonSmoke(View view) {
+        attempts.cigaretteTheLastDay();
+        updateState();
+    }
+    public void buttonNoSmoke(View view) {
+        attempts.noCigaretteTheLastDay();
+        updateState();
     }
 }

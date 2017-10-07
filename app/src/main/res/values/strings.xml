@@ -3,4 +3,6 @@
     <string name="character_yes">✔</string>
     <string name="character_no">✗</string>
     <string name="message_days">%d days</string>
+    <string name="button_smoke">I did smoke</string>
+    <string name="button_no_smoke">I did not smoke</string>
 </resources>
