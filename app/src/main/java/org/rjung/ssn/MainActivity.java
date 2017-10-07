@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import org.rjung.ssn.db.Attempt;
 import org.rjung.ssn.db.AttemptDatabase;
+import org.rjung.ssn.notification.NotificationBuilder;
 
 import java.util.Date;
 
@@ -20,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         attempts = new AttemptDatabase(this);
         setContentView(R.layout.activity_main);
+        updateState();
+        NotificationBuilder.scheduleNotification(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         updateState();
     }
 

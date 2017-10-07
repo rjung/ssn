@@ -19,8 +19,8 @@ public class AttemptDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_COLUMN_UPDATED = "updated";
     public static final String DATABASE_COLUMN_FINISHED = "finished";
     public static final int DATABASE_VERSION = 1;
-    //public static final int MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-    public static final int MILLISECONDS_PER_DAY = 1000 * 60; // TODO CHANGE
+    public static final int MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    //public static final int MILLISECONDS_PER_DAY = 1000 * 60; // TODO CHANGE
 
     public AttemptDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,7 +40,7 @@ public class AttemptDatabase extends SQLiteOpenHelper {
     }
 
     public long notifyIn() {
-        return getCurrentAttempt().getUpdated().getTime() + MILLISECONDS_PER_DAY;
+        return new Date().getTime() - getCurrentAttempt().getUpdated().getTime() + MILLISECONDS_PER_DAY;
     }
 
     public Attempt getCurrentAttempt() {

@@ -28,13 +28,13 @@ public class NotificationBuilder {
                         .setContentTitle(context.getResources().getString(R.string.app_name))
                         .setContentText(context.getResources().getString(R.string.message_smoked_question)).build();
         Intent notificationIntent = new Intent(context, NotificationPublisher.class);
+        notificationIntent.setAction(NOTIFICATION);
         notificationIntent.putExtra(NOTIFICATION_ID, 1);
         notificationIntent.putExtra(NOTIFICATION, notification);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        long futureInMillis = SystemClock.elapsedRealtime() + attempts.notifyIn();
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, attempts.notifyIn(), pendingIntent);
     }
 
 }
