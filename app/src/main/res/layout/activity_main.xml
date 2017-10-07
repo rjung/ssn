@@ -26,7 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="start"
+                android:gravity="left"
+                android:layout_margin="@dimen/highscore_border"
                 android:text="@string/message_highscore" />
 
             <TextView
@@ -34,7 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="end"
+                android:gravity="right"
+                android:layout_margin="@dimen/highscore_border"
                 android:text="" />
         </LinearLayout>
 
