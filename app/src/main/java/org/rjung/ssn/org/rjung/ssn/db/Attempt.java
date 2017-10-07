@@ -1,12 +1,22 @@
 package org.rjung.ssn.org.rjung.ssn.db;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Attempt {
 
+    private Long id;
     private Date started;
     private Date updated;
     private Date finished;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Date getStarted() {
         return started;
@@ -56,8 +66,16 @@ public class Attempt {
         return finished != null;
     }
 
+    public boolean isPersisted() {
+        return id != null;
+    }
+
     public void setFinished(Date finished) {
         this.finished = finished;
     }
 
+    public long getDays() {
+        long diff = (updated.getTime() - started.getTime());
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+    }
 }

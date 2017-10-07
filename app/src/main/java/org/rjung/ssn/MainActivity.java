@@ -1,6 +1,7 @@
 package org.rjung.ssn;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         TextView icon = (TextView) findViewById(R.id.attempt_icon);
         TextView notice = (TextView) findViewById(R.id.attempt_days);
 
-        icon.setText(attempt.isFinished() ? R.string.character_yes : R.string.character_no);
-        icon.setTextColor(ContextCompat.getColor(this, attempt.isFinished() ? R.color.colorPrimary : R.color.colorAccent));
-        notice.setText("Changed");
+        icon.setText(attempt.isFinished() ? R.string.character_no : R.string.character_yes);
+        icon.setTextColor(ContextCompat.getColor(this, attempt.isFinished() ? R.color.colorAccent : R.color.colorPrimary));
+        notice.setText(getResources().getString(R.string.message_days, attempt.getDays()));
     }
 }
