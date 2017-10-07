@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import org.rjung.ssn.org.rjung.ssn.db.Attempt;
-import org.rjung.ssn.org.rjung.ssn.db.AttemptDatabase;
+import org.rjung.ssn.db.Attempt;
+import org.rjung.ssn.db.AttemptDatabase;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
         updateState();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateState();
+    }
+
     private void updateState() {
         Attempt attempt = attempts.getCurrentAttempt();
         TextView icon = (TextView) findViewById(R.id.attempt_icon);
         TextView notice = (TextView) findViewById(R.id.attempt_days);
         TextView highscore = (TextView) findViewById(R.id.highscore);
+        TextView question = (TextView) findViewById(R.id.message_smoked_question);
 
         int days = attempt.isFinished() ? 0 : (int) attempt.getDays();
         int highscoreDays = (int) attempts.getHighscore();
@@ -34,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         icon.setTextColor(ContextCompat.getColor(this, attempt.isFinished() ? R.color.colorAccent : R.color.colorPrimary));
         notice.setText(getResources().getQuantityString(R.plurals.message_days, days, days));
         highscore.setText(getResources().getQuantityString(R.plurals.highscore_days, highscoreDays, highscoreDays));
+        question.setText(getResources().getString(Attempt.getMilisecondsInDays(new Date().getTime() - attempt.getUpdatedStore()) > 1 ? R.string.message_smoked_since_last_checking_question : R.string.message_smoked_question));
     }
 
     public void buttonSmoke(View view) {

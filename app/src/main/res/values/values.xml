@@ -3,5 +3,5 @@
     <dimen name="iconFontSize">200sp</dimen>
     <dimen name="daysFontSize">62sp</dimen>
     <dimen name="badgetSize">62sp</dimen>
-    <dimen name="highscore_border">4sp</dimen>
+    <dimen name="highscore_border">6sp</dimen>
 </resources>

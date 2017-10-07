@@ -1,4 +1,4 @@
-package org.rjung.ssn.org.rjung.ssn.db;
+package org.rjung.ssn.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,7 +19,8 @@ public class AttemptDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_COLUMN_UPDATED = "updated";
     public static final String DATABASE_COLUMN_FINISHED = "finished";
     public static final int DATABASE_VERSION = 1;
-    public static final int MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    //public static final int MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    public static final int MILLISECONDS_PER_DAY = 1000 * 60; // TODO CHANGE
 
     public AttemptDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,6 +37,10 @@ public class AttemptDatabase extends SQLiteOpenHelper {
 
     public List getColumns() {
         return Arrays.asList(DATABASE_COLUMN_ID, DATABASE_COLUMN_STARTED, DATABASE_COLUMN_UPDATED, DATABASE_COLUMN_FINISHED);
+    }
+
+    public long notifyIn() {
+        return getCurrentAttempt().getUpdated().getTime() + MILLISECONDS_PER_DAY;
     }
 
     public Attempt getCurrentAttempt() {

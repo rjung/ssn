@@ -1,4 +1,4 @@
-package org.rjung.ssn.org.rjung.ssn.db;
+package org.rjung.ssn.db;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -80,6 +80,7 @@ public class Attempt {
     }
 
     public static long getMilisecondsInDays(long diff) {
-        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        return TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS); // TODO CHANGE
+        //return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 }
