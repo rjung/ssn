@@ -2,6 +2,11 @@
     <string name="app_name">Stop Smoking Now</string>
     <string name="character_yes">✔</string>
     <string name="character_no">✗</string>
+    <plurals name="message_days">
+        <item quantity="one">1 day</item>
+        <item quantity="zero">no days</item>
+        <item quantity="other">%d days</item>
+    </plurals>
     <string name="message_days">%d days</string>
     <string name="button_smoke">I did smoke</string>
     <string name="button_no_smoke">I did not smoke</string>

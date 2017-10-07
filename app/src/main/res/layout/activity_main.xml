@@ -15,6 +15,27 @@
         android:layout_height="wrap_content"
         android:layout_weight="2">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Your longest streak:" />
+
+            <TextView
+                android:id="@+id/highscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="1 day" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/attempt_icon"
             android:layout_width="wrap_content"
@@ -55,21 +76,21 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_smoke"
             android:layout_weight="1"
-            android:onClick="buttonSmoke"/>
+            android:onClick="buttonSmoke"
+            android:text="@string/button_smoke" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_no_smoke"
             android:layout_weight="1"
-            android:onClick="buttonNoSmoke"/>
+            android:onClick="buttonNoSmoke"
+            android:text="@string/button_no_smoke" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/badgetSize"
-        android:layout_weight="1"></LinearLayout>
+        android:layout_weight="1"
+        android:minHeight="@dimen/badgetSize"></LinearLayout>
 </LinearLayout>

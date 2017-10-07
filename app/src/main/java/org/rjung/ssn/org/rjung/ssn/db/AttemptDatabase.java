@@ -19,6 +19,7 @@ public class AttemptDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_COLUMN_UPDATED = "updated";
     public static final String DATABASE_COLUMN_FINISHED = "finished";
     public static final int DATABASE_VERSION = 1;
+    public static final int MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
     public AttemptDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -54,6 +55,18 @@ public class AttemptDatabase extends SQLiteOpenHelper {
         return result;
     }
 
+    public long getHighscore() {
+        try (Cursor cursor = getReadableDatabase().rawQuery("SELECT " +
+                "MAX(" + DATABASE_COLUMN_FINISHED + " - CASE WHEN " + DATABASE_COLUMN_STARTED + " IS NULL THEN ? ELSE " + DATABASE_COLUMN_STARTED + " END) AS ms " +
+                "FROM " + DATABASE_TABLE, new String[]{Long.toString(new Date().getTime())})) {
+            if (cursor.moveToNext()) {
+                return Attempt.getMilisecondsInDays(cursor.getLong(cursor.getColumnIndex("ms")));
+            } else {
+                return 0;
+            }
+        }
+    }
+
     private long persist(Attempt attempt) {
         if (attempt.isPersisted()) {
             return getWritableDatabase().update(DATABASE_TABLE, getContentValues(attempt), "id = ?", new String[]{Long.toString(attempt.getId())});
@@ -67,7 +80,7 @@ public class AttemptDatabase extends SQLiteOpenHelper {
         if (attempt.isFinished()) {
             attempt = new Attempt();
             long now = new Date().getTime();
-            attempt.setStartedStore(now - 1000 * 60 * 60 * 24);
+            attempt.setStartedStore(now - MILLISECONDS_PER_DAY);
             attempt.setUpdatedStore(now);
         } else {
             attempt.setUpdated(new Date());

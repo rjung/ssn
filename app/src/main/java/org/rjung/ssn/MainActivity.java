@@ -25,16 +25,22 @@ public class MainActivity extends AppCompatActivity {
         Attempt attempt = attempts.getCurrentAttempt();
         TextView icon = (TextView) findViewById(R.id.attempt_icon);
         TextView notice = (TextView) findViewById(R.id.attempt_days);
+        TextView highscore = (TextView) findViewById(R.id.highscore);
+
+        int days = attempt.isFinished() ? 0 : (int) attempt.getDays();
+        int highscoreDays = (int) attempts.getHighscore();
 
         icon.setText(attempt.isFinished() ? R.string.character_no : R.string.character_yes);
         icon.setTextColor(ContextCompat.getColor(this, attempt.isFinished() ? R.color.colorAccent : R.color.colorPrimary));
-        notice.setText(getResources().getString(R.string.message_days, attempt.isFinished() ? 0 : attempt.getDays()));
+        notice.setText(getResources().getQuantityString(R.plurals.message_days, days, days));
+        highscore.setText(getResources().getQuantityString(R.plurals.message_days, highscoreDays, highscoreDays));
     }
 
     public void buttonSmoke(View view) {
         attempts.cigaretteTheLastDay();
         updateState();
     }
+
     public void buttonNoSmoke(View view) {
         attempts.noCigaretteTheLastDay();
         updateState();

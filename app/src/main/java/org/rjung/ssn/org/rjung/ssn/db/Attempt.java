@@ -76,6 +76,10 @@ public class Attempt {
 
     public long getDays() {
         long diff = (updated.getTime() - started.getTime());
+        return getMilisecondsInDays(diff);
+    }
+
+    public static long getMilisecondsInDays(long diff) {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 }
