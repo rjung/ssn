@@ -2,16 +2,6 @@
     <string name="app_name">Stop Smoking Now</string>
     <string name="character_yes">✔</string>
     <string name="character_no">✗</string>
-    <plurals name="message_days">
-        <item quantity="one">1 day</item>
-        <item quantity="zero">no days</item>
-        <item quantity="other">%d days</item >
-    </plurals>
-    <plurals name="highscore_days">
-        <item quantity="one">1 day</item>
-        <item quantity="zero">no days</item>
-        <item quantity="other">%d days</item>
-    </plurals>
     <string name="message_highscore">Your longest streak:</string>
     <string name="message_smoked_question">Did you smoke the last 24 hours?</string>
     <string name="message_smoked_since_last_checking_question">Did you smoke since the last checkin?</string>

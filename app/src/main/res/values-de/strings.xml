@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rauchen aufhören!</string>
+    <string name="button_no_smoke">Ich habe nicht geraucht</string>
+    <string name="button_smoke">Ich habe geraucht</string>
+    <string name="message_highscore">Deine längste reuchfreie Zeit:</string>
+    <string name="message_smoked_question">Hast du in den letzten 24 Stunden geraucht?</string>
+    <string name="message_smoked_since_last_checking_question">Hast du seit dem letzten mal geraucht?</string>
+    <string name="character_no">✗</string>
+    <string name="character_yes">✔</string>
+</resources>

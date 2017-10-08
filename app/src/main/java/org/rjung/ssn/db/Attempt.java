@@ -80,7 +80,6 @@ public class Attempt {
     }
 
     public static long getMilisecondsInDays(long diff) {
-        //return TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS); // TODO CHANGE
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 }

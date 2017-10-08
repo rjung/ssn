@@ -20,7 +20,6 @@ public class AttemptDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_COLUMN_FINISHED = "finished";
     public static final int DATABASE_VERSION = 1;
     public static final int MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-    //public static final int MILLISECONDS_PER_DAY = 1000 * 60; // TODO CHANGE
 
     public AttemptDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
