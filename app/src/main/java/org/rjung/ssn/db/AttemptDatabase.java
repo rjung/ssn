@@ -62,8 +62,8 @@ public class AttemptDatabase extends SQLiteOpenHelper {
 
     public long getHighscore() {
         try (Cursor cursor = getReadableDatabase().rawQuery("SELECT " +
-                "MAX(" + DATABASE_COLUMN_FINISHED + " - CASE WHEN " + DATABASE_COLUMN_STARTED + " IS NULL THEN ? ELSE " + DATABASE_COLUMN_STARTED + " END) AS ms " +
-                "FROM " + DATABASE_TABLE, new String[]{Long.toString(new Date().getTime())})) {
+                "MAX((CASE WHEN " + DATABASE_COLUMN_FINISHED + " IS NULL THEN " + DATABASE_COLUMN_UPDATED + " ELSE " + DATABASE_COLUMN_FINISHED + " END) - " + DATABASE_COLUMN_STARTED + ") AS ms " +
+                "FROM " + DATABASE_TABLE, null)) {
             if (cursor.moveToNext()) {
                 return Attempt.getMilisecondsInDays(cursor.getLong(cursor.getColumnIndex("ms")));
             } else {
